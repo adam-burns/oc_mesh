@@ -31,3 +31,5 @@ wget https://github.com/openshift/origin/releases/download/v3.7.0/openshift-orig
 # https://docs.openshift.org/latest/install_config/master_node_configuration.html#creating-new-configuration-files
 # to get around this, try running:
 # openshift start --master-config=/var/lib/origin/openshift.local.config/master/master-config.yaml --node-config=/openshift.local.config/node-localhost/node-config.yaml
+# simpler for now (RTFM), use:
+# oc cluster up --use-existing-config

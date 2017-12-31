@@ -1,14 +1,9 @@
 #!/bin/bash
 
+. ./init.sh
+
 # oc login
 oc login -u system:admin
-
-ISTIO=`ls | grep istio`
-export PATH="${PATH}:${ISTIO}/bin"
-
-echo "PATH:= $PATH"
-
-read line
 
 oc apply -f <(istioctl kube-inject -f ${ISTIO}/samples/bookinfo/kube/bookinfo.yaml)
 oc expose svc productpage

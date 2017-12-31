@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# download istio & add istioctl to path
+. init.sh
+
 # bring openshift cluster up
 oc cluster up 
 
@@ -20,10 +23,6 @@ oc adm policy add-scc-to-user privileged -z istio-pilot-service-account
 oc adm policy add-scc-to-user anyuid -z default
 oc adm policy add-scc-to-user privileged -z default
 oc adm policy add-cluster-role-to-user cluster-admin -z default
-
-curl -L https://git.io/getLatestIstio | sh -
-export ISTIO=`ls | grep istio`
-export PATH="$PATH:~/$ISTIO/bin"
 
 oc apply -f ${ISTIO}/install/kubernetes/istio.yaml
 

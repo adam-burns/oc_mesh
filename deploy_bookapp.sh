@@ -10,4 +10,5 @@ oc expose svc productpage
 
 export PRODUCTPAGE=$(oc get route productpage -o jsonpath='{.spec.host}{"\n"}')
 
-oc get -o wide pods
+echo "Bookapp URL= $PRODUCTPAGE"
+

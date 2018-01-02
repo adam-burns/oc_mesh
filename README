@@ -24,6 +24,8 @@ wget https://github.com/openshift/origin/releases/download/v3.7.0/openshift-orig
 # [registries.insecure]
 # registries = ['172.30.0.0/16']
 
+sudo systemctl restart docker
+
 #####
 # Note that after running ./oc_mesh.sh, /var/lib/origin/openshift.local.config/master/master-config.yaml gets overwrttien (by oc cluster up?)
 # 
@@ -33,3 +35,7 @@ wget https://github.com/openshift/origin/releases/download/v3.7.0/openshift-orig
 # openshift start --master-config=/var/lib/origin/openshift.local.config/master/master-config.yaml --node-config=/openshift.local.config/node-localhost/node-config.yaml
 # simpler for now (RTFM), use:
 # oc cluster up --use-existing-config
+
+# Note:
+# For info on routers using HAProxy to expose to external interfaces, see https://docs.openshift.com/enterprise/3.2/install_config/install/deploy_router.html#install-config-install-deploy-router
+

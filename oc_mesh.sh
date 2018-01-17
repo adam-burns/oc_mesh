@@ -5,6 +5,8 @@
 
 # bring openshift cluster up
 oc cluster up 
+#oc cluster up --use-existing-config
+#oc cluster up --routing-suffix="192.168.178.83.nip.io"
 
 # login as system:admin
 oc login -u system:admin
@@ -43,6 +45,11 @@ export GRAFANA=$(oc get route grafana -o jsonpath='{.spec.host}{"\n"}'):3000/das
 export ZIPKIN=$(oc get route zipkin -o jsonpath='{.spec.host}{"\n"}')
 
 echo "Openshift Cluster raised & Istio booted"
+
+echo "SERVICEGRAPH=$SERVICEGRAPH"
+echo "GRAFANA=$GRAFANA"
+echo "ZIPKIN=$ZIPKIN"
+
 echo "Status:"
 oc get -o wide pods
 

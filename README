@@ -39,3 +39,10 @@ sudo systemctl restart docker
 # Note:
 # For info on routers using HAProxy to expose to external interfaces, see https://docs.openshift.com/enterprise/3.2/install_config/install/deploy_router.html#install-config-install-deploy-router
 
+
+DNS:
+DNS is a little weird. nip.io appears to not resolve non localhost subdomains. to fix
+create a /etc/dhcp/dhclient.conf with the line:
+prepend domain-name-servers 8.8.8.8;
+
+because google servers resolve the required namespace!?!?!?!

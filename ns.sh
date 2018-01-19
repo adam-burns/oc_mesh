@@ -4,7 +4,7 @@ export ZIPKIN=$(oc get route zipkin -o jsonpath='{.spec.host}{"\n"}')
 
 export PRODUCTPAGE=$(oc get route productpage -o jsonpath='{.spec.host}{"\n"}')
 
-echo "SERVICEGRAPH=$SERVICEGRAPH"
-echo "GRAFANA=$GRAFANA"
-echo "ZIPKIN=$ZIPKIN"
+echo "SERVICEGRAPH= $SERVICEGRAPH"
+echo "GRAFANA= $GRAFANA"
+echo "ZIPKIN= $ZIPKIN"
 echo "Bookapp URL= $PRODUCTPAGE"
